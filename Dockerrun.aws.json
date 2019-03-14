@@ -1,0 +1,27 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "ui",
+            "image": "yannicksealy/{app}",
+            "hostname": "ui",
+            "essential": false,
+            "memory": 128
+        },
+        {
+            "name": "nginx",
+            "image": "yannicksealy/nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": [
+                "ui"
+            ],
+            "memory": 128
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "halogen-starter",
+  "description": "Halogen Hot Reload Starter",
+  "authors": [
+    "yannick <yannseal1@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "output"
+  ],
+  "dependencies": {
+    "purescript-prelude": "^4.1.0",
+    "purescript-halogen": "^4.0.0",
+    "purescript-console": "^4.2.0",
+    "purescript-maybe": "^4.0.1"
+  }
+}

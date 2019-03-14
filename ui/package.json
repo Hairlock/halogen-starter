@@ -1,0 +1,28 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "serve": "http-server",
+    "setup": "bower install && psc-package install && psc-package build && yarn install && yarn build",
+    "copy": "cpx \"images\\*.*\" \"dist\"",
+    "build": "npm run copy && parcel build assets/index.html",
+    "dev": "parcel serve assets/index.html --hmr-port 1235"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "cpx": "^1.5.0",
+    "cssnano": "^4.1.10",
+    "parcel-bundler": "^1.5.1",
+    "sass": "^1.17.2"
+  },
+  "dependencies": {
+    "http-server": "^0.11.1",
+    "smooth-scroll": "^16.0.0"
+  }
+}

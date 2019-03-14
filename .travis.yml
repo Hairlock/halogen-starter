@@ -1,0 +1,23 @@
+sudo: required
+services:
+  - docker
+
+script:
+  - docker build -t yannicksealy/cv-ui ./ui
+  - docker build -t yannicksealy/nginx ./nginx
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push yannicksealy/{app}
+  - docker push yannicksealy/nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: { app }
+  env: { app-env }
+  bucket_name: { region }
+  bucket_path: { app }
+  on:
+    branch: staging
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
